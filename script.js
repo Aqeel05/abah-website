@@ -1,28 +1,40 @@
 // Sample portfolio items
 const portfolioItems = [
     {
-        title: "Project 1",
-        category: "Web Design",
-        image: "assets/project1.jpg",
-        description: "A modern website design with clean aesthetics"
+        title: "Modern Apartment",
+        category: "○ Residential ○",
+        image: "assets/gemini-interior-design.jpeg",
+        description: "Contemporary living space with minimalist design and natural elements"
     },
     {
-        title: "Project 2",
-        category: "Branding",
-        image: "assets/project2.jpg",
-        description: "Complete brand identity for a tech startup"
+        title: "Luxury Villa",
+        category: "○ Residential ○",
+        image: "assets/chatgpt-interior-design.png",
+        description: "Elegant villa interior with custom furniture and premium finishes"
     },
     {
-        title: "Project 3",
-        category: "UI/UX",
-        image: "assets/project3.jpg",
-        description: "Mobile app interface design"
+        title: "Co-working Space",
+        category: "○ Commercial ○",
+        image: "assets/hannah.png",
+        description: "Innovative workspace design promoting creativity and collaboration"
     },
     {
-        title: "Project 4",
-        category: "Print Design",
-        image: "assets/project4.jpg",
-        description: "Magazine layout and typography"
+        title: "Boutique Hotel",
+        category: "○ Commercial ○",
+        image: "assets/jeddah.png",
+        description: "Unique hotel interior with local cultural influences"
+    },
+    {
+        title: "Minimalist Loft",
+        category: "○ Residential ○",
+        image: "assets/minimalist-loft.jpeg",
+        description: "Open-concept living space with industrial elements"
+    },
+    {
+        title: "Restaurant Design",
+        category: "○ Commercial ○",
+        image: "assets/restaurant.jpeg",
+        description: "Sophisticated dining space with custom lighting and furniture"
     }
 ];
 
@@ -38,7 +50,7 @@ function createPortfolioItems() {
                 <img src="${item.image}" alt="${item.title}">
                 <div class="portfolio-item-overlay">
                     <h3>${item.title}</h3>
-                    <p>${item.category}</p>
+                    <p class="category">${item.category}</p>
                     <p class="description">${item.description}</p>
                 </div>
             </div>
@@ -84,8 +96,25 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             // Here you would typically send the form data to a server
-            alert('Thank you for your message! I will get back to you soon.');
+            alert('Thank you for your message! We will get back to you soon.');
             contactForm.reset();
         });
     }
+
+    // Add animation on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.service-card, .portfolio-item, .about-content, .contact-container');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            
+            if (elementTop < window.innerHeight && elementBottom > 0) {
+                element.classList.add('animate');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Initial check
 }); 
